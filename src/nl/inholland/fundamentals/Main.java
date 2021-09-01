@@ -25,7 +25,7 @@ public class Main {
         // Read in an int
         System.out.print("Please enter your age: ");
         int age = scanner.nextInt();
-        System.out.println(String.format("You are %s, and you are %d years old", name, age));
+        System.out.printf("You are %s, and you are %d years old%n", name, age);
 
         // This is System I/O. It's good practice to close the scanner...
         scanner.close();
