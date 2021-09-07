@@ -29,6 +29,7 @@ public class App {
         app.readStudentsPresence(app.numberOfStudents);
 
         app.printStudentsPresence(app.numberOfStudents);
+        app.scanner.close();
     }
 
     private void printStudentsPresence(int numberOfStudents) {
