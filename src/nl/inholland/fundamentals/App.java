@@ -12,11 +12,15 @@ public class App {
 
     public static void main(String[] args) {
         App app = new App();
-        app.readBaseData();
-        app.readStudents(app.numberOfStudents);
-        app.readGrades(app.numberOfStudents);
-        app.printResults();
-        app.scanner.close();
+        app.start();
+    }
+
+    private void start() {
+        readBaseData();
+        readStudents(numberOfStudents);
+        readGrades(numberOfStudents);
+        printResults();
+        scanner.close();
     }
 
     private void printResults() {
