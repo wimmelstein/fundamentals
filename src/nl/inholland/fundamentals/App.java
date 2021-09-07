@@ -13,23 +13,26 @@ public class App {
 
     public static void main(String[] args) {
         App app = new App();
+        app.start();
+    }
 
+    private void start() {
         System.out.print("Please enter the size of your group and press [Enter]: ");
-        app.numberOfStudents = app.scanner.nextInt();
-        app.scanner.nextLine();
-        System.out.printf("Group size: %d%n", app.numberOfStudents);
+        numberOfStudents = scanner.nextInt();
+        scanner.nextLine();
+        System.out.printf("Group size: %d%n", numberOfStudents);
 
-        app.readStudentNames(app.numberOfStudents);
+        readStudentNames(numberOfStudents);
 
-        for (int i = 0; i < app.numberOfStudents; i++) {
-            System.out.printf("Student #%d: %s%n", i+1, app.students[i].getName());
+        for (int i = 0; i < numberOfStudents; i++) {
+            System.out.printf("Student #%d: %s%n", i+1, students[i].getName());
         }
         System.out.println();
 
-        app.readStudentsPresence(app.numberOfStudents);
+        readStudentsPresence(numberOfStudents);
 
-        app.printStudentsPresence(app.numberOfStudents);
-        app.scanner.close();
+        printStudentsPresence(numberOfStudents);
+        scanner.close();
     }
 
     private void printStudentsPresence(int numberOfStudents) {
