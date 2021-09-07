@@ -1,27 +1,31 @@
 package nl.inholland.fundamentals;
 
-import nl.inholland.fundamentals.model.Person;
-import nl.inholland.fundamentals.model.Student;
-import nl.inholland.fundamentals.model.Teacher;
+import nl.inholland.fundamentals.model.BankAccount;
+
+import java.util.Scanner;
 
 public class App {
 
     public static void main(String[] args) {
-        Student jack = new Student("Jack Monterrey", "jack.monterrey@student.inholland.nl", "IT2a");
-        Student lisa = new Student("Lisa Ventura", "lisa.ventura@student.inholland.nl", "IT2a");
-        Teacher jill = new Teacher("Jill Summers", "jill.summers@inholland.nl", 3500.00);
-        Teacher peter = new Teacher("Peter Prince", "peter.prince@inholland.nl", 2790.85);
 
-        Person[] people = new Person[]{jack, lisa, jill, peter};
+        BankAccount bankAccount = new BankAccount(1, 200);
+        System.out.println(bankAccount);
 
-        for (Person person : people) {
-            if (person instanceof Teacher) {
-                double yearlySalary = ((Teacher) person).getSalary();
-                System.out.println(person + ", yearly salary=" + String.format("%.2f", yearlySalary * 12.00));
-            } else {
-                System.out.println(person);
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.print("Enter the amount to witdraw or 0 to exit: ");
+            double amount = scanner.nextDouble();
+            if (amount == 0) {
+                System.out.println("End of program");
+                break;
             }
+            bankAccount.withdraw(amount);
+            System.out.println(bankAccount);
         }
 
+        scanner.close();
     }
+
 }
+

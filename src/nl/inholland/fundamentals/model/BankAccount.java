@@ -33,9 +33,6 @@ public class BankAccount {
 
     @Override
     public String toString() {
-        return "BankAccount{" +
-                "accountNumber=" + accountNumber +
-                ", balance=" + balance +
-                '}';
+        return String.format("Bankaccount %d now has balance %.2f", this.getAccountNumber(), this.getBalance());
     }
 }
