@@ -1,27 +1,28 @@
 package nl.inholland.fundamentals;
 
-import nl.inholland.fundamentals.model.Person;
-import nl.inholland.fundamentals.model.Student;
-import nl.inholland.fundamentals.model.Teacher;
+import nl.inholland.fundamentals.model.BankAccount;
+
+import java.util.Scanner;
 
 public class App {
 
     public static void main(String[] args) {
-        Student jack = new Student("Jack Monterrey", "jack.monterrey@student.inholland.nl", "IT2a");
-        Student lisa = new Student("Lisa Ventura", "lisa.ventura@student.inholland.nl", "IT2a");
-        Teacher jill = new Teacher("Jill Summers", "jill.summers@inholland.nl", 3500.00);
-        Teacher peter = new Teacher("Peter Prince", "peter.prince@inholland.nl", 2790.85);
+        BankAccount account = new BankAccount(1, 200.00);
+        System.out.println(account);
+        Scanner scanner = new Scanner(System.in);
 
-        Person[] people = new Person[]{jack, lisa, jill, peter};
-
-        for (Person person : people) {
-            if (person instanceof Teacher) {
-                double yearlySalary = ((Teacher) person).getSalary();
-                System.out.println(person + ", yearly salary=" + String.format("%.2f", yearlySalary * 12.00));
-            } else {
-                System.out.println(person);
+        while (true) {
+            System.out.print("Enter an amount to withdraw or 0 to stop: ");
+            double amount = scanner.nextDouble();
+            if (amount==0) {
+                System.out.println("End program...");
+                break;
             }
+
+            account.withdraw(amount);
+            System.out.printf("Account number %d now has balance %.2f%n", account.getAccountNumber(), account.getBalance());
         }
 
+        scanner.close();
     }
 }
