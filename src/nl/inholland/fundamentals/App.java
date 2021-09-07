@@ -20,26 +20,33 @@ public class App {
     }
 
     private void printResults() {
-
         int sum = 0;
         int maxResult = 0;
         int studentWithHighestScore = 0;
+        
         for (int i = 0; i < numberOfStudents; i++) {
             sum += grades[i];
         }
+
         double avgResult = sum/numberOfStudents;
+
         for (int i = 0; i < numberOfStudents; i++) {
             if (grades[i] > maxResult) {
                 studentWithHighestScore = i;
                 maxResult = grades[i];
             }
         }
+
         System.out.printf("Average grade: %.1f%n", avgResult);
         System.out.printf("Student %s has highest score of %d%n%n", students[studentWithHighestScore], maxResult);
 
         for (int i = 0; i < numberOfStudents; i++) {
-            System.out.printf("Grade for student %s (course %s): %d%n", students[i], course, grades[i] );
+            printStudentGrade(students[i], course, grades[i]);
         }
+    }
+
+    private void printStudentGrade(String student, String course, int grade) {
+        System.out.printf("Grade for student %s (course %s): %d%n", student, course, grade);
     }
 
 
