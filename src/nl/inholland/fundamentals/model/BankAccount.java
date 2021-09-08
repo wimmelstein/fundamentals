@@ -18,17 +18,25 @@ public class BankAccount {
     }
 
     public void withdraw(double amount) {
-        if (this.getBalance() - amount < 0) {
-            System.out.println("You don't have enough money in your account to withdraw money");
-            return;
-        }
-
-        if (amount < 0) {
+        if (isNegativeAmount(amount)) {
             System.out.println("Withdrawing a negative amount is not possible");
             return;
         }
 
+        if (willBalanceBecomeLessThanZero(amount)) {
+            System.out.println("You don't have enough money in your account to withdraw money");
+            return;
+        }
+
         balance -= amount;
+    }
+
+    private boolean willBalanceBecomeLessThanZero(double amount) {
+        return this.getBalance() -amount < 0;
+    }
+
+    private boolean isNegativeAmount(double amount) {
+        return amount < 0;
     }
 
     @Override
