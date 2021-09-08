@@ -2,7 +2,7 @@ package nl.inholland.fundamentals;
 
 import java.util.Scanner;
 
-public class Main {
+public class App {
 
     /*
     Creating scanner as a class variable
@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
         //Creating a start method. But then we have to instantiate this class...
-        Main main = new Main();
+        App main = new App();
         main.start();
     }
 
