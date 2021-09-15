@@ -14,7 +14,7 @@ public class App {
         employee.setGrossSalary(5000);
 
         Freelancer freelancer = new Freelancer();
-        freelancer.setWorkedHours(40);
+        freelancer.setWorkedHours(140);
         freelancer.setHourlyRate(60);
 
         List<Payable> payables = List.of(freelancer,employee);
