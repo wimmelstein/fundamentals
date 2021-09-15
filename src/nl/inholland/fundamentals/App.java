@@ -1,8 +1,24 @@
 package nl.inholland.fundamentals;
 
+import nl.inholland.fundamentals.model.Employee;
+import nl.inholland.fundamentals.model.Freelancer;
+import nl.inholland.fundamentals.model.Payable;
+
+import java.util.List;
+
 public class App {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Employee employee = new Employee();
+        employee.setGrossSalary(5000);
+
+        Freelancer freelancer = new Freelancer();
+        freelancer.setWorkedHours(40);
+        freelancer.setHourlyRate(60);
+
+        List<Payable> payables = List.of(freelancer,employee);
+        for (Payable payable: payables) {
+            System.out.println(payable.getPayout());
+        }
     }
 }
