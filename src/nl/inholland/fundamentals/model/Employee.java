@@ -13,6 +13,6 @@ public class Employee implements Payable {
 
     @Override
     public double getPayout() {
-        return getGrossSalary();
+        return .7 * getGrossSalary();
     }
 }
